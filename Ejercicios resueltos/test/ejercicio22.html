@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .uno {
+            background-color: cornflowerblue;
+        }
+        
+        .dos {
+            font-size: 150px;
+        }
+        
+        .tres {
+            transform: rotateZ(180deg);
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Transformame</div>
+    <button onclick="cambiarClase()">Convertir</button>
+    <button onclick="restaurar()">Revertir</button>
+    <button onclick="intercambiar()">Intercambiar</button>
+
+    <script>
+        function cambiarClase() {
+            let elemento = document.getElementsByTagName("div")[0];
+            if (elemento.classList.length == 0) {
+                elemento.classList.add("uno");
+            } else if (elemento.classList.length == 1) {
+                elemento.classList.add("dos");
+            } else if (elemento.classList.length == 2) {
+                elemento.classList.add("tres");
+            }
+        }
+
+        function restaurar() {
+            let elemento = document.getElementsByTagName("div")[0];
+            if (elemento.classList.length == 1) {
+                elemento.classList.remove("uno");
+            } else if (elemento.classList.length == 2) {
+                elemento.classList.remove("dos");
+            } else if (elemento.classList.length == 3) {
+                elemento.classList.remove("tres");
+            }
+        }
+
+        function intercambiar() {
+            let elemento = document.getElementsByTagName("div")[0];
+            elemento.classList.toggle("uno");
+            elemento.classList.toggle("dos");
+            elemento.classList.toggle("tres");
+        }
+    </script>
+</body>
+
+</html>

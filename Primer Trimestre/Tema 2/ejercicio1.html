@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="nombre"></p>
+    <p id="apellidos"></p>
+    <p id="direccion"></p>
+    <p id="telefono"></p>
+    <p id="dni"></p>
+    <script>
+        let nombre = prompt("Introduce tu nombre");
+        let apellidos = prompt("Introduce tus apellidos");
+        let direccion = prompt("Introduce tu direccion");
+        let telefono = prompt("Introduce tu teléfono");
+        let dni = prompt("Introduce tu DNI", "00000000X");
+        alert(`Tu nombre es: ${nombre} \
+            Tus apellidos: ${apellidos} \
+            Tu dirección: ${direccion} \
+            Tu telefono: ${telefono} \
+            Tu DNI: ${dni} \
+            Hecho por alert`);
+        document.write(`Tu nombre es: ${nombre} \
+            Tus apellidos: ${apellidos} \
+            Tu dirección: ${direccion} \
+            Tu telefono: ${telefono} \
+            Tu DNI: ${dni} \
+            Hecho por document write`);
+        document.getElementById("nombre").innerHTML = "Tu nombre es: " + nombre + " Hecho por innerHTML";
+        document.getElementById("apellidos").innerHTML = "Tus apellidos: " + apellidos + " Hecho por innerHTML";
+        document.getElementById("direccion").innerHTML = "Tu dirección: " + direccion + " Hecho por innerHTML";
+        document.getElementById("telefono").innerHTML = "Tu telefono: " + telefono + " Hecho por innerHTML";
+        document.getElementById("dni").innerHTML = "Tu DNI: " + dni + " Hecho por innerHTML";
+        console.log(`Tu nombre es: ${nombre} \
+            Tus apellidos: ${apellidos} \
+            Tu dirección: ${direccion} \
+            Tu telefono: ${telefono} \
+            Tu DNI: ${dni} \
+            Hecho por console log`);
+    </script>
+</body>
+
+</html>
+<!-- let par = 0;
+for(let i = 1; i <= 15; i ++){
+  console.log(`Iteración: ${i}`);
+  if((i % 2) == 0){
+    par++;
+  }
+}
+alert(`Número de pares encontrados: ${par}`); -->

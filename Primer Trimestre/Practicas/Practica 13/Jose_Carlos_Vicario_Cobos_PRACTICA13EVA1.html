@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numero = 0;
+        let nulo = false;
+        let cadena = "";
+        let caracter = 0;
+        let cifrado = "";
+        do {
+            numero = prompt("Introduce un numero");
+            //ANecesitamos convertir el numero a int, si no se interpreta como String
+            numero = parseInt(numero);
+            if (numero === null) {
+                alert("Se ha cancelado el programa");
+                nulo = true;
+            } else if ((numero < 1) || (numero > 100)) {
+                alert("Introduce un numero valido");
+            } else {
+                cadena = prompt("Introduce la cadena a cifrar");
+                if (cadena === null) {
+                    alert("Se ha cancelado el programa");
+                    nulo = true;
+                } else if ((cadena.length) == 0) {
+                    alert("No se admiten cadenas vacías");
+                } else {
+                    for (let i = 0; i < cadena.length; i++) {
+                        //Convertimos caracter por caracter a su valor unicode
+                        caracter = cadena.charCodeAt(i);
+                        //Sumamos el numero del cifrado
+                        caracter = parseInt(caracter);
+                        caracter = caracter + numero;
+                        //En una nueva cadena, añadimos los caracteres cifrados; convirtiendolos desde su valor numerico
+                        cifrado += String.fromCharCode(caracter);
+                    }
+                    document.write(cifrado);
+                    nulo = true;
+                }
+            }
+        } while (nulo == false);
+    </script>
+</body>
+
+</html>

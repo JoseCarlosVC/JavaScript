@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function mostrar() {
+            let elemento = document.getElementById("array").innerHTML;
+            document.wr
+            for (const i in elemento) {
+                document.getElementById("array").innerHTML += elemento.charAt(i) + " ";
+                document.getElementById("array").innerHTML += elemento(i) + " ";
+            }
+
+            for (const x of elemento) {
+                document.getElementById("array").innerHTML += x;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p id="array">Hola caracola</p>
+    <button onclick="mostrar()">Mostrar</button>
+
+</body>
+
+</html>

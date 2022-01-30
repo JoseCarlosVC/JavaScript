@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let rojo = 0;
+        let verde = 0;
+        let azul = 0;
+        rojo = parseInt(Math.random() * 256);
+        verde = parseInt(Math.random() * 256);
+        azul = parseInt(Math.random() * 256);
+        document.write(`<style> div { left:0%; top:0%; background-color:rgb(${rojo},${verde},${azul}); height:100%; width:100%; position:fixed;} </style>`);
+        document.write("<div></div>");
+    </script>
+</body>
+
+</html>

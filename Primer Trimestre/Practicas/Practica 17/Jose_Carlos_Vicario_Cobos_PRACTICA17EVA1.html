@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fibonacci(numero) {
+            //Los dos primeros términos de la sucesión son siempre 0 y 1, pararemos aqui la recursividad o, en caso de que el usuario introduzca 0 o 1, mostraremos esos numeros sin empezar la recursividad
+            if (numero == 0) {
+                return 0;
+            } else if (numero == 1) {
+                return 1;
+            } else {
+                //Si no son los dos primeros términos, aplicamos la sucesión
+                return (fibonacci(numero - 1) + fibonacci(numero - 2));
+            }
+        }
+        let num = prompt("Indica qué termino de la sucesión de Fibonacci quieres ver");
+        alert(`El termino ${num} es ` + fibonacci(num));
+    </script>
+</body>
+
+</html>

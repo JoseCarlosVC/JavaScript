@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input value="Escribe aquí...">
+    <button id="solo" onclick="soloLee()">Activado</button>
+    <br>
+    <button id="boton">Activado</button>
+    <button onclick="desactiva()">Activa/Desactiva</button>
+    <script>
+        let entrada = document.querySelector("input");
+        let solo = document.getElementById("solo");
+
+        function soloLee() {
+            entrada.toggleAttribute("readonly");
+            if (entrada.hasAttribute("readonly")) {
+                solo.innerText = "Solo lectura";
+            } else {
+                solo.innerText = "Lectura/Escritura";
+            }
+        }
+
+        let boton = document.getElementById("boton");
+
+        function desactiva() {
+            boton.toggleAttribute("disabled");
+        }
+    </script>
+
+</body>
+
+</html>

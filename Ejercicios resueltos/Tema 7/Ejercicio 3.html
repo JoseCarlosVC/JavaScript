@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="datos_coordS()">Primera coordenada superior: </button>
+    <p id="coordS"></p>
+    <button onclick="datos_coordI()">Primera coordenada izquierda: </button>
+    <p id="coordI"></p>
+    <button onclick="datos_anchD()">Altura disponible de la pantalla: </button>
+    <p id="anchD"></p>
+    <button onclick="datos_altD()">Anchura disponible de la pantalla: </button>
+    <p id="altD"></p>
+    <button onclick="datos_altT()">Altura total de la pantalla: </button>
+    <p id="altT"></p>
+    <button onclick="datos_anchT()">Anchura total de la pantalla: </button>
+    <p id="anchT"></p>
+    <button onclick="datos_ori()">Orientación: </button>
+    <p id="ori"></p>
+    <button onclick="datos_prof()">Profundidad de colores: </button>
+    <p id="prof"></p>
+    <script>
+        let coordS = screen.availTop + "px";
+        document.getElementById("coordS").innerHTML = coordS;
+        let coordI = screen.availLeft + "px";
+        document.getElementById("coordI").innerHTML = coordI;
+        let anchD = screen.availWidth + "px";
+        document.getElementById("anchD").innerHTML = anchD;
+    </script>
+</body>
+
+</html>

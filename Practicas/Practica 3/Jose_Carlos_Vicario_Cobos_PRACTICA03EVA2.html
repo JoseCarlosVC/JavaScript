@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let es_nombre = false;
+        let es_pass = false;
+        let nombre = "";
+        let pass = "";
+
+        do {
+            if (nombre === false) {
+                document.write("Se ha cancelado el nombre de usuario");
+                es_nombre = true;
+                es_pass = true;
+            } else {
+                nombre = prompt("Introduce el nombre de usuario");
+                //Con la función match podemos usar una expresión regular para comprobar el nombre de usuario
+                if (nombre.match(/^[a-z0-9]{8,12}$/)) {
+                    //if (nombre.match(/^[a-z][0-9]*$/)) {
+                    es_nombre = true;
+                } else {
+                    alert("El nombre no corresponde con el formato");
+                }
+            }
+
+        } while (es_nombre == false);
+
+
+        while (es_pass === false) {
+            if (pass === false) {
+                document.write("Se ha cancelado la contraseña");
+                es_pass = true;
+            } else {
+                pass = prompt("Introduce la contraseña");
+                //De igual manera, aqui comprobamos que existan minusculas mayusculas, numeros y, con la expresion \W, cualquier caracter no alfanumerico
+                if (pass.match(/^[a-z0-9A-Z\W]{8,12}$/)) {
+                    es_pass = true;
+                    document.write("Registrado correctamente");
+                } else {
+                    alert("La contraseña no corresponde con el formato");
+                }
+            }
+        }
+
+        alert(`Usuario y contraseña introducidos correctamente: ${nombre} ${pass}`)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="s1">
+        <h1 id="titulo">Texto del título</h1>
+        <p id="parrafo1">Texto del <strong>párrafo1</strong> completo.</p>
+        <p id="parrafo2">Texto del párrafo2</p>
+        <p id="parrafo3">Texto del párrafo3</p>
+    </section>
+
+    <script>
+        let miParrafo = document.getElementById("parrafo1");
+        console.log(miParrafo.firstChild.nextSibling.parentNode.innerHTML);
+        console.log(miParrafo.firstChild.nextSibling.parentNode.innerText);
+        /**
+         * Ejercicio 24
+         * let miSeccion = document.getElementById("s1");
+         *  console.log(miSeccion.childNodes.length);
+         *  console.log(miSeccion.childElementCount);
+         *  let el1 = miSeccion.firstElementChild;
+         *  console.log(el1.nodeName);
+         *  for (let hijo of miSeccion.children) {
+         *  console.log(`Nombre: ${hijo.nodeName}`);
+         *  }
+         *  let elHermano = el1.nextElementSibling;
+         *  console.log(elHermano.childElementCount);
+         *  for (let parrafo of elHermano.children) {
+         *  console.log(`Nombre elementos: ${parrafo.nodeName} \n` + `Valor elementos: ${parrafo.nodeValue}`);
+         *  }
+         *  for (let parrafo2 of elHermano.childNodes) {
+         *  console.log(`Nombre nodos: ${parrafo2.nodeName} \n` + `Valor nodos: ${parrafo2.nodeValue}`);
+         *  }
+         */
+    </script>
+</body>
+
+</html>

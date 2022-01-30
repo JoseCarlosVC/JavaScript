@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Dejamos RAM, Disco, Pulgadas con sus valores por defecto
+        function Ordenador(marca, modelo, ram = 4, disco = 512, pulgadas = 17) {
+            //Recogemos los valores, ya sean introducidos por el usuario o por defecto
+            this.marca = marca;
+            this.modelo = modelo;
+            this.ram = ram;
+            this.disco = disco;
+            this.pulgadas = pulgadas;
+
+            this.toString = () => {
+                document.write(`Marca: ${this.marca} `);
+                document.write(`Modelo: ${this.modelo} `);
+                document.write(`RAM: ${this.ram} `);
+                document.write(`Disco: ${this.disco} `);
+                document.write(`Pulgadas: ${this.pulgadas}`);
+            }
+        }
+
+        function Portatil(marca, modelo, ram = 4, disco = 256, pulgadas = 13, autonomia = 4) {
+            //Llamamos al constructor del objeto ordenador
+            this.__proto__ = new Ordenador(marca, modelo, ram, disco, pulgadas);
+            this.autonomia = autonomia;
+            this.toString = () => {
+                document.write(`Marca: ${this.marca} `);
+                document.write(`Modelo: ${this.modelo} `);
+                document.write(`RAM: ${this.ram} `);
+                document.write(`Disco: ${this.disco} `);
+                document.write(`Pulgadas: ${this.pulgadas} `);
+                document.write(`Autonomía: ${this.autonomia} `);
+            }
+        }
+
+        ord1 = new Ordenador("Asus", "K");
+        ord2 = new Ordenador("Asus", "K", 8, 1000, 20);
+
+        ord1.toString();
+        document.write("<br>");
+        ord2.toString();
+        document.write("<br>");
+
+        port1 = new Portatil("Acer", "G");
+        port2 = new Portatil("Acer", "G", 16, 1000, 24, 8);
+        port1.toString();
+        document.write("<br>");
+        port2.toString();
+    </script>
+</body>
+
+</html>

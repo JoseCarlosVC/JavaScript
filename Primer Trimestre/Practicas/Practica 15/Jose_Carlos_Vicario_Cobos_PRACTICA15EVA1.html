@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let cancelado = false; //Comprueba si se ha cancelado un cuadro de texto
+        let numero = 0; //Pedimos la clave por pantalla
+        let texto = ""; //Pedimos el texto a cifrar por pantalla
+        let letras = ""; //Convertimos el numero en String
+        let cifrado = ""; //El texto de salida, ya cifrado
+        let clave = ""; //Ciframos cada letra del texto
+        let cifras = []; //Pasamos el String-numero a array y volvemos a pasarlos a int
+        let caracter = ""; //Cogemos cada caracter del texto y lo ciframos
+        let recorrer = 0; //Necesitamos recorrer el array de numeros manualmente
+        //Iniciamos a 0 y pedimos un valor hasta que sea válido
+        while ((numero < 1) || (numero > 1000000)) {
+            numero = prompt("Introduce una clave");
+            if (numero === null) {
+                cancelado = true;
+                numero = 1;
+            } else if (numero == "") {
+                alert("No puedes dejar una cadena vacia");
+                numero = 0;
+            } else {
+                //Si se ha introducido un numero, lo convertimos a int
+                numero = parseInt(numero);
+            }
+        }
+        if (cancelado == true) {
+            alert("Se ha cancelado en la introduccion de la clave");
+        } else {
+            while (cancelado == false) {
+                texto = prompt("Introduce la cadena a cifrar");
+                if (texto === null) {
+                    cancelado = true;
+                    alert("Se ha cancelado en la introduccion del texto");
+                    cancelado = true;
+                } else if (texto == "") {
+                    alert("No puedes dejar una cadena vacia");
+                } else {
+                    cancelado = true;
+                    //Necesitamos separar el número en cifras, para ello lo convertiremos en String y lo separaremos en un array
+                    letras = numero.toString();
+                    cifras = letras.split("");
+                    for (let x = 0; x < cifras.length; x++) {
+                        cifras[x] = parseInt(cifras[x]); //Volvemos a convertir los valores a numeros
+                    }
+                    //Recorremos la cadena y vamos sumando cada cifra a cada valor
+                    for (let y = 0; y < texto.length; y++) {
+                        caracter = texto[y];
+                        caracter = caracter.charCodeAt(0);
+                        caracter = caracter + cifras[recorrer];
+                        caracter = String.fromCharCode(caracter);
+                        cifrado += caracter;
+                        recorrer++;
+                        //Si recorremos todos los numeros, volvemos a empezar de 0
+                        if (recorrer == cifras.length) {
+                            recorrer = 0;
+                        }
+                    }
+                }
+            }
+            //Si no se ha cancelado el programa, se muestra la cadena
+            if (texto !== null) {
+                alert(cifrado);
+                document.write(cifrado);
+            }
+        }
+    </script>
+</body>
+
+</html>

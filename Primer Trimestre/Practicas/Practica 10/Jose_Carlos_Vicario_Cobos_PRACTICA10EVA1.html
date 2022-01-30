@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let rojo = 0;
+        let verde = 0;
+        let azul = 0;
+        let arriba = 0;
+        let izquierda = 0;
+        let i = 0;
+
+        while (i < 2000) {
+            rojo = parseInt(Math.random() * 256);
+            verde = parseInt(Math.random() * 256);
+            azul = parseInt(Math.random() * 256);
+            arriba = parseInt(Math.random() * 101);
+            izquierda = parseInt(Math.random() * 101);
+            document.write(`<style> #a${i} { position:absolute; background-color:rgb(${rojo},${verde},${azul}); top:${arriba}%; left:${izquierda}%;  height:50px; width:50px; } </style>`);
+            document.write(`<div id=a${i}></div>`);
+            i++;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Punto(coordX, coordY) {
+            //Si no se recibe un número, se asigna 0
+            if (isNaN(coordX)) {
+                this.x = 0;
+            } else {
+                this.x = coordX;
+            }
+            if (isNaN(coordY)) {
+                this.y = 0;
+            } else {
+                this.y = coordY;
+            }
+            //Cambiamos las coordenadas por las que nos pase el usuario
+            this.cambiar = (x, y) => {
+                this.x = x;
+                this.y = y;
+            }
+
+            this.copia = () => {
+                //Creamos un nuevo objeto Punto llamado copia
+                copia = new Punto(this.x, this.y);
+                return copia;
+            }
+
+            this.iguales = (punto) => {
+                if ((this.x == punto.x) && (this.y == punto.y)) {
+                    alert("Los objetos son iguales");
+                } else {
+                    alert("No son iguales");
+                }
+            }
+
+            this.suma = (punto) => {
+                //Se crea un tercer objeto llamado sumado, que recibe la suma de las coordenadas de los dos puntos anteriores
+                sumado = new Punto((this.x + punto.x), (this.y + punto.y));
+                return sumado;
+            }
+
+            this.toString = () => document.write(`${this.x},${this.y} <br>`);
+        }
+        //Declaramos el objeto...
+        punto = new Punto(3, 7);
+
+        //Mostramos sus coordenadas...
+        punto.toString();
+
+
+        //Lo copiamos a un nuevo objeto..
+        punto.copia();
+
+        //A partir de aquí tenemos el objeto copia
+        document.write("Coordenadas de la copia <br>");
+        //Mostramos los datos de copia y comparamos los objetos
+        copia.toString();
+        punto.iguales(copia);
+
+        document.write("Se cambian las coordenadas del punto <br>");
+        //Cambiamos las coordenadas del primer objeto y comparamos de nuevo
+        punto.cambiar(6, 9);
+        punto.iguales(copia);
+
+        //Sumamos las coordenadas de los dos objetos y mostramos el tercer objeto que se devuelve como resultado
+        document.write("Coordenadas de la suma <br>");
+        punto.suma(copia);
+        sumado.toString();
+    </script>
+</body>
+
+</html>

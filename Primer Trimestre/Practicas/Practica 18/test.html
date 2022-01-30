@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-collapse: collapse;
+            height: 100%;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        table,
+        td {
+            border: 2px solid black;
+            table-layout: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let filas = 10;
+        let columnas = 10;
+        let minas = 1;
+        const tablero = [];
+        for (let i = 0; i < filas; i++) {
+            tablero[i] = [];
+            for (let j = 0; j < columnas; j++) {
+                tablero[i][j] = false;
+            }
+        }
+
+        function rngFil(filas) {
+            return 5;
+            //return Math.floor(Math.random() * filas);
+        }
+
+        function rngCol(columnas) {
+            return 5;
+            //return Math.floor(Math.random() * columnas);
+        }
+
+        function mostrarTablero() {
+            document.write("<table>");
+            for (let x of tablero) {
+                document.write("<tr>");
+                for (let y of x) {
+                    if (y === true) {
+                        document.write("<td style='background-color:grey;'>");
+                    } else if (y === false) {
+                        document.write("<td style='background-color:teal;'>");
+                    } else {
+                        document.write(`<td style='background-color:coral; text-align: center;'>${y}`);
+                    }
+                    document.write("</td>");
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+
+        function colocarMinas(filas, columnas, minas) {
+            //Seleccionamos una posicion aleatoria de la matriz y, si está vacía, colocamos una mina
+            let seedFil = rngFil(filas);
+            let seedCol = rngCol(columnas);
+            let contador = 0;
+            while (contador < minas) {
+                //Si la casilla está libre, introducimos una mina, si no, buscamos otro valor
+                if (tablero[seedFil][seedCol] === false) {
+                    tablero[seedFil][seedCol] = true;
+                    contador++; //Hemos introducido una mina, incrementamos el contador
+                } else {
+                    seedFil = rngFil(filas);
+                    seedCol = rngCol(columnas);
+                }
+            }
+        }
+
+        function colocarNumeros(fil, col) {
+            let contador = 0;
+            //Recorremos el array entero y, para cada casilla, comprobamos sus alrededores
+            for (let k = 0; k < fil; k++) {
+                for (let l = 0; l < col; l++) {
+                    //Si esta casilla está vacía, comprobamos las casillas a su alrededor
+                    if (tablero[k][l] === false) {
+                        for (let i = Math.max(0, k - 1); i < Math.min(col, k + 2); i++) {
+                            for (let j = Math.max(0, l - 1); j < Math.min(fil, l + 2); j++) {
+                                //Si hay una mina en una posición adyacente, sumamos al contador
+                                if (tablero[j][i] === true) {
+                                    contador++;
+                                }
+                            }
+                        }
+                        //Escribimos aquí el valor del contador
+                        tablero[k][l] = contador.toString();
+                    }
+                    contador = 0; //Contador vuelve a 0, pasamos al siguiente cuadrante
+                }
+            }
+        }
+        colocarMinas(filas, columnas, minas);
+        colocarNumeros(filas, columnas);
+        mostrarTablero();
+    </script>
+</body>
+
+</html>

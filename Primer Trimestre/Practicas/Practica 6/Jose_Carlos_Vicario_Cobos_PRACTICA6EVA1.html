@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numero = prompt("Introduce un numero");
+
+
+
+        //Usamos la función isNan para distinguir entre números o caracteres. Tampoco se admiten numeros mezclados con caracteres
+        if (numero.length == 0) {
+            alert("Has introducido una cadena vacía");
+        } else if (isNaN(numero)) {
+            alert(`${numero} no es un número`);
+        } else {
+            alert(`${numero} es un número`);
+        }
+    </script>
+</body>
+
+</html>
