@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ol id="lista">
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ullam corporis placeat dolorum pariatur necessitatibus quam possimus labore ea voluptate, rem suscipit? Ea facilis atque asperiores iste distinctio harum illo.</li>
+        <li>Nobis libero tempore doloremque dicta hic soluta harum vero corrupti? Inventore natus alias consequatur? Perferendis dolorum qui velit eligendi provident voluptatum! Excepturi modi iste velit aspernatur nihil! Vitae, doloremque itaque?</li>
+        <li>Recusandae alias saepe nulla dolores soluta libero accusantium commodi assumenda velit ipsam veniam laudantium vel laboriosam amet, hic quasi nostrum ipsum dicta! Repellendus atque numquam vero commodi soluta est rem.</li>
+        <li>Odit suscipit quam minima magni aut. Tempore, beatae dolorum non rerum laboriosam hic saepe architecto perspiciatis doloribus, illo repellat similique officiis magnam asperiores odit quos consectetur impedit repudiandae. Dolor, in?</li>
+        <li>Eos quo voluptate voluptas autem natus minima deserunt nostrum esse, possimus perferendis. Explicabo, aliquam vitae vero tempora omnis ad perspiciatis nesciunt velit exercitationem recusandae nulla, at officia consequatur, facilis perferendis?</li>
+        <li>Esse dolores illo, aperiam temporibus repellendus, itaque vitae quisquam ut delectus distinctio, ea nostrum id deleniti doloribus totam quam repellat asperiores consequatur iste officia eos minus tempora facilis ab? Error!</li>
+        <li>Quam ducimus totam consequuntur hic aliquam odio, quos, debitis sed ad odit, quo velit non inventore necessitatibus doloribus! Dignissimos, necessitatibus id et nesciunt quisquam itaque alias reiciendis placeat explicabo repellat.</li>
+        <li>Distinctio commodi iste rerum quia a, facilis dignissimos porro labore, voluptates numquam qui optio sunt at ea laboriosam, repellendus ex. Eius debitis fugit tempore corporis! Suscipit, facilis. Sequi, numquam dolores!</li>
+        <li>Quam reprehenderit eos architecto possimus aperiam, nihil, nostrum expedita dicta sapiente nesciunt dolor illum eum ipsam velit illo cupiditate facilis vitae ratione asperiores. Asperiores eligendi ab, odio distinctio at vel.</li>
+    </ol>
+    <script>
+        let texto = prompt("Introduce un texto");
+        let posicion = 0;
+        while ((posicion <= 0) || (posicion > 10)) {
+            posicion = prompt("Introduce la posición del texto");
+            if ((posicion <= 0) || (posicion > 10)) {
+                alert("Debes introducir un número entre 1 y 10");
+            } else if (isNaN(posicion)) {
+                alert("Debes introducir un número");
+                posicion = 0;
+            }
+        }
+
+        //Si no se ha cancelado, hacemos la función
+        if ((texto !== null) && (posicion !== null)) {
+            let lista = document.getElementById("lista");
+            let nuevoli = document.createElement("li");
+            nuevoli.textContent = texto;
+            let posLista = document.querySelectorAll(`#lista li:nth-of-type(${posicion})`)[0];
+            lista.insertBefore(nuevoli, posLista);
+        }
+    </script>
+</body>
+
+</html>

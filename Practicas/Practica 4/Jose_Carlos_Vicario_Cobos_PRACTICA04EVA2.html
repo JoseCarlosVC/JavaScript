@@ -11,9 +11,19 @@
 <body>
     <script>
         function fecha() {
-            let dia = prompt("Introduce el día");
-            let mes = prompt("Introduce el mes") - 1; //Los meses se cuentan a partir de 0, necesitamos restarle 1 para que se introduzca correctamente
-            let year = prompt("Introduce el año");
+            let dia = "";
+            let mes = "";
+            let year = "";
+            while (!dia.match(/(?=\d){1,2}/)) { //Se introducen uno o dos dígitos...
+                dia = prompt("Introduce el día");
+            }
+            while (!mes.match(/(?=\d){1,2}/)) { //Se introducen uno o dos dígitos...
+                mes = prompt("Introduce el mes");
+            }
+            mes--; //Los meses se cuentan a partir de 0, necesitamos restarle 1 para que se introduzca correctamente
+            while (!year.match(/\d{4}/)) { //Se introducen cuatro dígitos exactos
+                year = prompt("Introduce el año");
+            }
             return new Date(year, mes, dia);
         }
         let primeraFecha = fecha();
