@@ -15,10 +15,33 @@
     <p>Reiciendis reprehenderit expedita iste iusto laborum? Eos iusto blanditiis temporibus mollitia dignissimos ut quia cum harum perferendis reiciendis repellendus, quidem, optio animi reprehenderit? Consectetur voluptatum aut optio animi, iusto sapiente!</p>
     <p>Provident nostrum amet id placeat? Doloribus harum sapiente mollitia ad ex repellendus aliquid eveniet assumenda, minus labore earum, reprehenderit enim illum nobis doloremque molestias quo iure esse debitis ipsum asperiores!</p>
     <script>
-        let parrafos = document.getElementsByClassName("p");
-        for (parrafo of parrafos) {
+        let parrafos = document.getElementsByTagName("p");
+        let contar = 0;
 
+        function contarEspacios(parrafo) {
+            //Todas las cadenas de texto son un array, podemos ir contando 
+            console.log("¿Hola?");
+            let espacios = 0;
+            for (caracter of parrafo.innerText) {
+                //Si el caracter es un espacio o más de un espacio...
+                if (caracter.match(/\s/)) {
+                    espacios++;
+                } else if (caracter.match(/\s\s*/)) {
+                    espacios++;
+                }
+            }
+            return espacios;
         }
+        for (parrafo of parrafos) {
+            contar += contarEspacios(parrafo);
+        }
+        let parrafoNumero = document.createElement("p");
+        parrafoNumero.innerText = "El número de palabras es " + contar;
+
+        //Seleccionamos el elemento body y el primer parrafo, y insertamos el parrafo nuevo al principio
+        let principal = document.getElementsByTagName("body")[0];
+        let primerParrafo = document.getElementsByTagName("p")[0];
+        principal.insertBefore(parrafoNumero, primerParrafo);
     </script>
 </body>
 

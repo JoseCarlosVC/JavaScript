@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Uno</p>
+    <p>Dos</p>
+    <p>Tres</p>
+    <p>Cuatro</p>
+    <script>
+        function clickar(parrafo) {
+            alert(parrafo.textContent);
+        }
+        let parrafos = document.querySelectorAll("p");
+        for (let parrafo of parrafos) {
+            parrafo.addEventListener("click", () => {
+                alert(parrafo.textContent)
+            });
+        }
+        /** 
+         * 1) Debería mostrar el contenido de cada párrafo, pero solo muestra el último
+         * 2) let
+         * 3) 
+         * 4)
+         */
+        let newParrafo = document.createElement("p");
+        newParrafo.textContent = "Cinco";
+        let capa = document.getElementsByTagName("body")[0];
+        capa.appendChild(newParrafo);
+        newParrafo.addEventListener("click", clickar(newParrafo));
+    </script>
+</body>
+
+</html>

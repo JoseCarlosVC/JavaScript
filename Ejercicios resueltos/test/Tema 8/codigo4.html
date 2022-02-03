@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 50%;
+            width: 50%;
+            background-color: darkgray;
+        }
+        
+        p {
+            height: 50%;
+            margin: 0;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>
+            <button>¡Hazme clic!</button>
+        </p>
+    </div>
+    <script>
+        //Referenciamos los tres elementos
+        let capa = document.querySelector("div");
+        let p = document.querySelector("p");
+        let boton = document.querySelector("button");
+        /*Les asignamos los listeners avisando cuando se pulse
+        cada elemento*/
+        capa.addEventListener("click", () => {
+            console.log("click en capa")
+        });
+        p.addEventListener("click", () => {
+            console.log("click en p")
+        });
+        boton.addEventListener("click", () => {
+            console.log("click en botón")
+        });
+    </script>
+</body>
+
+</html>
