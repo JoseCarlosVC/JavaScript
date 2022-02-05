@@ -18,19 +18,19 @@
     </section>
     <script>
         /*
-                                        function recorrerArchivo(nodo) {
-                                            if (nodo.hasChildNodes) {
-                                                //Si tiene nodos hijo, hacemos recursividad
-                                                recorrerArchivo(nodo);
-                                            } else {
-                                                //Si tiene atributos, los mostramos
-                                                if (nodo.attributes) {
-                                                    console.log(nodo.attributes);
-                                                }
-                                                console.log(nodo.innerText);
-                                            }
-                                        }
-                                        */
+                function recorrerArchivo(nodo) {
+                    if (nodo.hasChildNodes) {
+                        //Si tiene nodos hijo, hacemos recursividad
+                        recorrerArchivo(nodo);
+                    } else {
+                        //Si tiene atributos, los mostramos
+                        if (nodo.attributes) {
+                            console.log(nodo.attributes);
+                        }
+                        console.log(nodo.innerText);
+                    }
+                }
+        */
         function allDescendants(node) {
             for (var i = 0; i < node.childNodes.length; i++) {
                 var child = node.childNodes[i];
