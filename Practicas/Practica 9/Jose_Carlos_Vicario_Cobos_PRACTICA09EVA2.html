@@ -21,7 +21,7 @@
                 function recorrerArchivo(nodo) {
                     if (nodo.hasChildNodes) {
                         //Si tiene nodos hijo, hacemos recursividad
-                        recorrerArchivo(nodo);
+                        recorrerArchivo(nodo)device-width;
                     } else {
                         //Si tiene atributos, los mostramos
                         if (nodo.attributes) {
@@ -31,7 +31,7 @@
                     }
                 }
         */
-        /*function recorrerNodos(nodo) {
+        function recorrerNodos(nodo) {
             for (var i = 0; i < nodo.childNodes.length; i++) {
                 var child = nodo.childNodes[i];
                 recorrerNodos(child);
@@ -40,7 +40,7 @@
                 }
                 console.log(nodo.innerText);
             }
-        }*/
+        }
         let pagina = document.getElementsByTagName("html")[0];
         //Aunque solo exista un elemento HTML, la función getElementsByTagName devuelve un array. Cogemos su primera posición para seleccionar el nodo HTMl
         recorrerNodos(pagina);
