@@ -31,19 +31,19 @@
                     }
                 }
         */
-        function allDescendants(node) {
-            for (var i = 0; i < node.childNodes.length; i++) {
-                var child = node.childNodes[i];
-                allDescendants(child);
-                if (node.attributes) {
-                    console.log(node.attributes);
+        /*function recorrerNodos(nodo) {
+            for (var i = 0; i < nodo.childNodes.length; i++) {
+                var child = nodo.childNodes[i];
+                recorrerNodos(child);
+                if (nodo.attributes) {
+                    console.log(nodo.attributes);
                 }
-                console.log(node.innerText);
+                console.log(nodo.innerText);
             }
-        }
+        }*/
         let pagina = document.getElementsByTagName("html")[0];
         //Aunque solo exista un elemento HTML, la función getElementsByTagName devuelve un array. Cogemos su primera posición para seleccionar el nodo HTMl
-        allDescendants(pagina);
+        recorrerNodos(pagina);
     </script>
 </body>
 
