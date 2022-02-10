@@ -17,22 +17,9 @@
         <p>Aquí sólo hay texto</p>
     </section>
     <script>
-        /*
-                function recorrerArchivo(nodo) {
-                    if (nodo.hasChildNodes) {
-                        //Si tiene nodos hijo, hacemos recursividad
-                        recorrerArchivo(nodo)device-width;
-                    } else {
-                        //Si tiene atributos, los mostramos
-                        if (nodo.attributes) {
-                            console.log(nodo.attributes);
-                        }
-                        console.log(nodo.innerText);
-                    }
-                }
-        */
         function recorrerNodos(nodo) {
-            for (var i = 0; i < nodo.childNodes.length; i++) {
+            //Recorremos todos los nodos hijo del elemento actual
+            for (let i = 0; i < nodo.childNodes.length; i++) {
                 var child = nodo.childNodes[i];
                 recorrerNodos(child);
                 if (nodo.attributes) {

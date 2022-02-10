@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Propagación de eventos</title>
+    <style>
+        div {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 50%;
+            width: 50%;
+            background-color: white;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+    </div>
+    <script>
+        //Referenciamos los tres elementos
+        let capa = document.querySelector("div");
+        /*Les asignamos los listeners avisando cuando se pulse
+        cada elemento*/
+        capa.addEventListener("mouseover", () => {
+            capa.style.backgroundColor = "green";
+        });
+
+        document.addEventListener("mousedown", function (ev) {
+            if (ev.button == 2) {
+                ev.preventDefault();
+
+                capa.style.backgroundColor = "blue";
+            }
+        });
+
+
+
+
+
+
+
+        boton.addEventListener("mousedown", () => {
+            capa.style.backgroundColor = "red";
+        });
+        //Al levantar el click, volvemos al color verde
+        boton.addEventListener("mouseup", () => {
+            capa.style.backgroundColor = "green";
+        });
+        botonSecundario.addEventListener("mousedown", () => {
+            capa.style.backgroundColor = "blue";
+        });
+        //Al levantar el click, volvemos al color verde
+        botonSecundario.addEventListener("mouseup", () => {
+            capa.style.backgroundColor = "green";
+        });
+        document.addEventListener("mousedown", function (ev) {
+            if (ev.button == 2) {
+                ev.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -9,24 +9,39 @@
 </head>
 
 <body>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi doloremque similique numquam deserunt dolorem nisi quos alias aliquam molestiae eveniet inventore voluptates soluta, ad molestias recusandae ducimus aut, omnis explicabo.</p>
-    <p>Labore, aut consequatur mollitia modi, ut in sit odit quod quae omnis tempora corporis commodi ullam perferendis ipsa sapiente explicabo? Asperiores similique perspiciatis inventore quaerat, maxime culpa dolorem minima minus!</p>
-    <p>Ipsum impedit ipsa est accusantium cupiditate quos repellat neque provident numquam perferendis? Quidem culpa maxime fugiat necessitatibus enim debitis facere velit officia, eveniet earum fugit id doloremque repellendus cupiditate architecto.</p>
-    <p>Reiciendis reprehenderit expedita iste iusto laborum? Eos iusto blanditiis temporibus mollitia dignissimos ut quia cum harum perferendis reiciendis repellendus, quidem, optio animi reprehenderit? Consectetur voluptatum aut optio animi, iusto sapiente!</p>
-    <p>Provident nostrum amet id placeat? Doloribus harum sapiente mollitia ad ex repellendus aliquid eveniet assumenda, minus labore earum, reprehenderit enim illum nobis doloremque molestias quo iure esse debitis ipsum asperiores!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi doloremque similique numquam deserunt dolorem
+        nisi quos alias aliquam molestiae eveniet inventore voluptates soluta, ad molestias recusandae ducimus aut,
+        omnis explicabo.</p>
+    <p>Labore, aut consequatur mollitia modi, ut in sit odit quod quae omnis tempora corporis commodi ullam perferendis
+        ipsa sapiente explicabo? Asperiores similique perspiciatis inventore quaerat, maxime culpa dolorem minima minus!
+    </p>
+    <p>Ipsum impedit ipsa est accusantium cupiditate quos repellat neque provident numquam perferendis? Quidem culpa
+        maxime fugiat necessitatibus enim debitis facere velit officia, eveniet earum fugit id doloremque repellendus
+        cupiditate architecto.</p>
+    <p>Reiciendis reprehenderit expedita iste iusto laborum? Eos iusto blanditiis temporibus mollitia dignissimos ut
+        quia cum harum perferendis reiciendis repellendus, quidem, optio animi reprehenderit? Consectetur voluptatum aut
+        optio animi, iusto sapiente! </p>
+    <p> Provident nostrum amet id placeat? Doloribus harum sapiente mollitia ad ex repellendus aliquid eveniet
+        assumenda,
+        minus labore earum, reprehenderit enim illum nobis doloremque molestias quo iure esse debitis ipsum asperiores!
+        SUSTITUIR ESPACIO
+    </p>
     <script>
         let parrafos = document.getElementsByTagName("p");
         let contar = 0;
 
         function contarEspacios(parrafo) {
-            //Todas las cadenas de texto son un array, podemos ir contando 
-            console.log("¿Hola?");
+            //Todas las cadenas de texto son un array que podemos ir contando
+            if (parrafo.innerText.match(/^\s+/)) {
+                parrafo.innerText.replace(/^\s+/, "");
+            } else if (parrafo.innerText.match(/\s+$/)) {
+                parrafo.innerText.replace(/\s+$/, "");
+            }
+            parrafo.innerText.replace(/\s{2,}/, " "); //Sustituimos por un espacio cuando haya dos o más
             let espacios = 0;
             for (caracter of parrafo.innerText) {
-                //Si el caracter es un espacio o más de un espacio...
+                //Si el caracter es un espacio...
                 if (caracter.match(/\s/)) {
-                    espacios++;
-                } else if (caracter.match(/\s\s*/)) {
                     espacios++;
                 }
             }
@@ -37,7 +52,7 @@
         }
         let parrafoNumero = document.createElement("p");
         parrafoNumero.innerText = "El número de palabras es " + contar;
-
+        parrafoNumero.style.fontWeight = "bold";
         //Seleccionamos el elemento body y el primer parrafo, y insertamos el parrafo nuevo al principio
         let principal = document.getElementsByTagName("body")[0];
         let primerParrafo = document.getElementsByTagName("p")[0];
