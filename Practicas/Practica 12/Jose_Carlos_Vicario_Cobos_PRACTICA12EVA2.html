@@ -29,39 +29,21 @@
             capa.style.backgroundColor = "green";
         });
 
-        document.addEventListener("mousedown", function (ev) {
+        capa.addEventListener("mousedown", function (ev) {
             if (ev.button == 2) {
-                ev.preventDefault();
-
                 capa.style.backgroundColor = "blue";
+            } else if (ev.button == 0) {
+                capa.style.backgroundColor = "red";
             }
         });
-
-
-
-
-
-
-
-        boton.addEventListener("mousedown", () => {
-            capa.style.backgroundColor = "red";
-        });
         //Al levantar el click, volvemos al color verde
-        boton.addEventListener("mouseup", () => {
+        capa.addEventListener("mouseup", () => {
             capa.style.backgroundColor = "green";
         });
-        botonSecundario.addEventListener("mousedown", () => {
-            capa.style.backgroundColor = "blue";
-        });
-        //Al levantar el click, volvemos al color verde
-        botonSecundario.addEventListener("mouseup", () => {
-            capa.style.backgroundColor = "green";
-        });
-        document.addEventListener("mousedown", function (ev) {
-            if (ev.button == 2) {
-                ev.preventDefault();
-            }
-        });
+        //El evento contextmenu controla el menú contextual; añadimos prevent default para evitar que se abra
+        document.addEventListener("contextmenu", function (ev) {
+            ev.preventDefault();
+        })
     </script>
 </body>
 
