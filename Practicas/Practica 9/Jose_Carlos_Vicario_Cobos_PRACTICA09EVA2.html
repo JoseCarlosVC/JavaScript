@@ -20,13 +20,15 @@
         function recorrerNodos(nodo) {
             //Recorremos todos los nodos hijo del elemento actual
             for (let i = 0; i < nodo.childNodes.length; i++) {
-                var child = nodo.childNodes[i];
-                recorrerNodos(child);
-                if (nodo.attributes) {
-                    console.log(nodo.attributes);
-                }
-                console.log(nodo.innerText);
+                let hijo = nodo.childNodes[i];
+                recorrerNodos(hijo);
+
             }
+            if (nodo.attributes) {
+                console.log(nodo.attributes);
+            }
+            console.log(nodo.innerText);
+
         }
         let pagina = document.getElementsByTagName("html")[0];
         //Aunque solo exista un elemento HTML, la función getElementsByTagName devuelve un array. Cogemos su primera posición para seleccionar el nodo HTMl
