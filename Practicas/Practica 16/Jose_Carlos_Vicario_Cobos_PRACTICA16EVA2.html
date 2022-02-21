@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        if (!document.cookie) {
+            //Si no existen cookies, mostramos el mensaje
+            let permiso = confirm(
+                "Esta página utiliza cookies para almacenar el número de visitas del usuario. Si está conforme pulse Aceptar. De otro modo, se eliminarán las cookies existentes"
+            );
+
+            if (permiso) {
+                //Si se ha aceptado el mensaje, creamos la cookie, y le damos un valor inicial e indicamos que su duración sea de un año
+                document.cookie = "visitas=1; max-age=60*60*24*365";
+            }
+        } else {
+            //Por otra parte, si se han creado cookies, mostramos las visitas e incrementamos el contador
+            let visitas = 0;
+            //Primero creamos un array para leer los valores
+            let arrayCookie = document.cookie.split("; ");
+            for (let galleta of arrayCookie) {
+                //... y separamos cada elemento del array en el nombre y valor de la cookie
+                let [nombre, valor] = galleta.split("=");
+                document.write(`Esta página tiene ${valor} visitas`);
+                visitas = valor;
+            }
+            visitas++;
+            //Una vez mostradas las visitas, las incrementamos
+            document.cookie = `visitas=${visitas}; max-age=60*60*24*365`;
+        }
+    </script>
+</body>
+
+</html>

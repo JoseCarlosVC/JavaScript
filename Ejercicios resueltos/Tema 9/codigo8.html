@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*var promesa = new Promise((resolver, rechazar) => {
+            throw new Error("La he liado parda");
+        });
+        promesa.then((respuesta) => {
+            console.log("Me ha ido bien");
+        }).catch((error) => {
+            console.log("Me ha ido mal");
+            console.log(error.message);
+        });*/
+        var promesa = new Promise((resolver, rechazar) => {
+            resolver("Me ha ido bien");
+            rechazar(Error("Me ha ido mal"));
+        });
+        promesa.then((respuesta) => {
+            console.log(respuesta);
+        }).catch((error) => {
+            console.log("Me ha ido mal");
+        });
+    </script>
+</body>
+
+</html>

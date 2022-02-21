@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var promesa = new Promise((resolver, rechazar) => {
+            let n1 = 3;
+            let n2 = 2;
+            if (n1 == n2)
+                resolver("¡Son iguales!");
+            else rechazar(Error("Algo raro ha pasado"));
+        });
+        promesa.then((respuesta) => {
+            console.log(respuesta);
+        }).catch((error) => {
+            console.log(error.message);
+        }).finally(() => {
+            console.log("Estamos comparando n1 y n2");
+        });
+    </script>
+</body>
+
+</html>

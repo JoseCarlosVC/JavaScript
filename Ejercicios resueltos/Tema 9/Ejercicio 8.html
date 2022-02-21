@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let promesa1 = Promise.resolve("Estoy resuelta");
+        let promesa2 = new Promise((resolver) => {
+            setTimeout(() => {
+                resolver("Resuelvo en 3s")
+            }, 3000);
+        });
+        let promesa3 = new Promise((resolver) => {
+            setTimeout(() => {
+                resolver("Resuelvo en 6s")
+            }, 6000);
+        });
+        let promesaConjunta = Promise.all([promesa1, promesa2, promesa3]);
+        console.log("Empezando");
+        promesaConjunta.then((resultados) => {
+            for (promesa in resultados) {
+                console.log(`Mensaje de la promesa nº ${promesa}: ${resultados[promesa]} `);
+            }
+        }, reason => {
+            console.log("Error en la promesa: " + reason);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="cancelar">Abortar!</button>
+    <script type="module">
+        //Importamos el fichero que contiene la función...
+        import * as tiempo from "./promesa.js";
+        let contador = parseInt(prompt("Introduce un tiempo en milisegundos"));
+        //Llamamos a la función temporizador que contiene la promesa y le pasamos el tiempo que hemos pedido al usuario
+        tiempo.temporizador(contador);
+    </script>
+</body>
+
+</html>

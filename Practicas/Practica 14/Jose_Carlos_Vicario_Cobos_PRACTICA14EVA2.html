@@ -7,24 +7,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-            /*Hacemos que en el documento no se pueda usar scroll*/
+        div {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            position: absolute;
+            top: 20px;
+
         }
 
-        #ventana {
-            width: 50%;
-            height: 50%;
-            top: 0;
-            margin: 0 auto;
-            position: fixed;
-            overflow-y: scroll;
-            /*Y que en el div sí se pueda*/
+        #origen {
+            background-color: goldenrod;
+            left: 100px;
+        }
+
+        #destino {
+            background-color: gainsboro;
+            left: 400px;
         }
     </style>
 </head>
 
 <body>
+    <div id="origen" draggable="true">
+        Soy arrastrable
+    </div>
+    <div id="destino">
+        Soy el destino
+    </div>
+    <script>
+        let cuerpo = document.getElementsByTagName("body")[0];
+        //Necesitaremos el nodo padre para eliminar el origen al final del ejercicio
 
+        document.addEventListener("dragstart", function (ev) {
+            //Cuando se comience a arrastrar, el elemento se vuelve semitransparente
+            ev.target.style.opacity = 0.5;
+        });
+
+        document.addEventListener("dragend", function (ev) {
+            //Si soltamos la caja sin llegar al destino, volverá a su opacidad normal
+            ev.target.style.opacity = 1;
+        });
+
+        document.addEventListener("dragenter", function (ev) {
+            //Cuando se entra en el destino, cambiamos el color de fondo
+            if (ev.target.id == "destino") {
+                ev.target.style.backgroundColor = "palevioletred";
+            }
+        });
+
+        document.addEventListener("dragover", function (ev) {
+            //El comportamiento por defecto de dragover, impide que usemos drop (soltar el elemento de inicio en el destino)
+            ev.preventDefault();
+        });
+
+        document.addEventListener("drop", function (ev) {
+            //Cuando se suelte en el destino, lo modificamos y eliminamos el primer elemento
+            if (ev.target.id == "destino") {
+                ev.target.style.backgroundColor = "palegoldenrod";
+                ev.target.innerText = "¡Lo has logrado!";
+                cuerpo.removeChild(document.getElementById("origen"));
+            }
+        });
+    </script>
 </body>
 
 </html>

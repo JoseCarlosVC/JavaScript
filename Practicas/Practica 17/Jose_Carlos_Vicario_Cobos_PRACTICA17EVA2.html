@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <label for="name">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" required>
+        <br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" required>
+        <br>
+        <label for="tlf">Teléfono: </label>
+        <input type="tel" name="tlf" id="tlf" required>
+        <br>
+        <label for="pais">País: </label>
+        <input type="text" name="pais" id="pais" required>
+        <br>
+        <input type="submit" value="enviar" id="submit">
+    </form>
+
+    <script>
+        let subir = document.getElementById("submit");
+        subir.addEventListener("click", function (ev) {
+            if (confirm("¿Desea guardar la información del formulario?")) {
+                //Si se nos permite almacenar la información, recogemos los datos de los campos y los almacenamos en cookies
+                let nombre = document.getElementById("nombre").value;
+                let email = document.getElementById("email").value;
+                let tlf = document.getElementById("tlf").value;
+                let pais = document.getElementById("pais").value;
+                document.cookie = `nombre=${nombre}; max-age=60*60*24*365`;
+                document.cookie = `email=${email}; max-age=60*60*24*365`;
+                document.cookie = `tlf=${tlf}; max-age=60*60*24*365`;
+                document.cookie = `pais=${pais}; max-age=60*60*24*365`;
+            } else {
+                //Si no se quieren guardar los datos, borramos las cookies que tenemos, si es que existen
+                if (document.cookie) {
+                    document.cookie = `nombre= ;expires=Sat, 01 Jan 2021 00:00:01 GMT`;
+                    document.cookie = `email= ;expires=Sat, 01 Jan 2021 00:00:01 GMT`;
+                    document.cookie = `tlf= ;expires=Sat, 01 Jan 2021 00:00:01 GMT`;
+                    document.cookie = `pais= ;expires=Sat, 01 Jan 2021 00:00:01 GMT`;
+                }
+            }
+        });
+        //De existir cookies, preguntamos al usuario si desea autocompletar el formulario
+        if (document.cookie) {
+            if (confirm("Se han encontrado datos de formulario. ¿Desea autocompletarlo?")) {
+                let nombreInput = document.getElementById("nombre");
+                let emailInput = document.getElementById("email");
+                let tlfInput = document.getElementById("tlf");
+                let paisInput = document.getElementById("pais");
+                let arrayCookie = document.cookie.split("; ");
+                let valores = []; //Para recoger los valores fuera del bucle, usaremos un array asociativo
+                for (let galleta of arrayCookie) {
+                    let [nombre, valor] = galleta.split("=");
+                    valores[nombre] = valor; //Los asignamos al array de la forma clave -> valor
+                }
+                nombreInput.value = valores['nombre'];
+                emailInput.value = valores['email'];
+                tlfInput.value = valores['tlf'];
+                paisInput.value = valores['pais'];
+            }
+        }
+    </script>
+</body>
+
+</html>

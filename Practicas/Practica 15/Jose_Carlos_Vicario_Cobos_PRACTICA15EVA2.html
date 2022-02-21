@@ -7,102 +7,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-            /*Hacemos que en el documento no se pueda usar scroll*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        #ventana {
+        body {
+            position: relative;
+        }
+
+        div {
+            width: 100vw;
+            height: 100%;
+            text-align: center;
+            background-color: black;
+            color: gainsboro;
+            font-size: 10em;
+            position: absolute;
+            z-index: 3;
+            transition: all 5s ease;
+        }
+
+        img {
             width: 50%;
             height: 50%;
-            top: 0;
-            margin: 0 auto;
-            position: fixed;
-            overflow-y: scroll;
-            /*Y que en el div sí se pueda*/
         }
     </style>
 </head>
 
 <body>
-    <div id="ventana">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quisquam unde, similique natus tempora dolores
-            earum nam deserunt sint nisi, minus illum velit itaque quam sequi animi cum. Assumenda, minus.</p>
-        <p>Possimus, eveniet? Nesciunt, facere eos excepturi veniam laudantium corporis commodi eius, at quam adipisci,
-            illo consectetur nobis quibusdam repellendus inventore iure aspernatur voluptate voluptates sequi amet.
-            Enim, sit accusamus! Explicabo.</p>
-        <p>Earum placeat consequatur sed explicabo? Nisi et quia temporibus distinctio, dicta atque cupiditate doloribus
-            porro incidunt perspiciatis architecto sapiente maiores quas aperiam voluptatem labore vero! Soluta
-            excepturi rem suscipit maiores.</p>
-        <p>Perspiciatis facilis dolores aliquam quisquam odio voluptatem, debitis ut deserunt? Provident maiores, error
-            nesciunt necessitatibus quasi alias neque temporibus minima corporis. Recusandae iusto sequi illo et
-            cupiditate ea provident dolorem!</p>
-        <p>Libero ipsum, dignissimos vel ex doloremque aliquid sed! Velit iste molestias delectus sed minus, eum
-            reprehenderit magni aperiam fuga quis dolores, eligendi blanditiis, dolorem nihil obcaecati pariatur ea
-            quibusdam praesentium!</p>
-        <p>Assumenda natus necessitatibus, perspiciatis in at esse quaerat tenetur sit ullam, voluptates autem est,
-            consectetur quam. Obcaecati amet corporis modi, adipisci fugit aut provident nobis odit nisi sit aperiam
-            laborum.</p>
-        <p>Placeat iste, nostrum fuga minima ad et quod. Nihil mollitia quas nemo expedita dolorem asperiores deserunt
-            nobis sunt beatae, ad temporibus, reiciendis dolorum exercitationem consequatur distinctio dolore quibusdam
-            pariatur illum?</p>
-        <p>Iste dolores nobis vero quam? Earum repellat quis quidem. Nihil corporis doloremque ex neque laborum
-            necessitatibus quidem maxime, laudantium eius debitis minus praesentium, dicta itaque asperiores. Aspernatur
-            eveniet quo aut.</p>
-        <p>Sunt ad similique dicta accusantium! Dolore explicabo error praesentium! Asperiores cumque ipsam voluptatem
-            repellat dolorem animi at numquam enim, iusto nesciunt quos dolores pariatur officia impedit consectetur
-            quisquam hic eaque.</p>
-        <p>Deserunt sint, quo voluptas, repudiandae incidunt perspiciatis similique sed id alias nihil minus optio cum
-            laborum. Exercitationem maiores expedita excepturi culpa consequatur. Cupiditate molestias vitae officiis
-            eveniet perspiciatis optio beatae.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est natus quas voluptatem odit dolorem, voluptate
-            expedita ipsum in, corrupti dolor quae illo sunt laudantium sapiente tenetur dicta minus esse facilis.</p>
-        <p>Voluptatibus quisquam, ratione laborum, sit quas recusandae laboriosam deleniti, mollitia ea enim laudantium
-            architecto labore repellendus voluptatum officia perferendis earum molestiae necessitatibus blanditiis
-            maiores atque cupiditate. Nostrum quibusdam aliquam consequuntur?</p>
-        <p>Officiis at blanditiis nam incidunt voluptas? Rerum cumque consequuntur ducimus libero! Harum quibusdam nisi
-            cumque deleniti necessitatibus aliquam animi exercitationem consequuntur quam laboriosam numquam itaque,
-            accusantium a repellat at voluptatem.</p>
-        <p>Dicta sed facere minima unde error pariatur suscipit. Quod mollitia eum quo est maiores, consectetur nesciunt
-            adipisci illo dicta facilis dolorem enim excepturi esse in quaerat facere! Velit, pariatur sint?</p>
-        <p>Eius saepe quod repudiandae sit, expedita nam ex deleniti fugit corrupti asperiores enim eum in quae sed ea
-            autem impedit perspiciatis pariatur nemo quis quidem iusto tenetur? Reiciendis, ea a.</p>
-        <p>Harum, repudiandae odio! Veniam quia vel, consequuntur atque quasi repellendus molestiae recusandae, dolorem
-            aliquam ducimus fuga dolor qui maiores magni blanditiis ex earum repudiandae nihil voluptate iste mollitia
-            tempora deserunt?</p>
-        <p>Ullam, magnam. Facere quis exercitationem iusto voluptas? Nesciunt incidunt nam id corporis quibusdam eaque,
-            deleniti, sunt voluptatibus delectus voluptate necessitatibus culpa nostrum molestiae, ipsa exercitationem.
-            Voluptatibus labore ipsa quisquam vero!</p>
-        <p>Praesentium, ratione odit dolorem porro, quibusdam blanditiis fugit sunt cumque dignissimos veritatis impedit
-            a ab vel dolor modi voluptates amet reiciendis corporis distinctio quam iste qui saepe sequi. Cumque, eos!
-        </p>
-        <p>Cum nulla officiis voluptatibus sapiente reiciendis, dolorum vero rem pariatur, odit corrupti consectetur
-            doloremque? Aliquam qui ab iure voluptatum dolore quia! Dolorum, inventore dicta debitis quam magnam
-            voluptatem! Possimus, placeat?</p>
-        <p>Iste corporis quae culpa adipisci blanditiis nostrum? Nesciunt deleniti, magni ab sunt, aperiam odit veniam
-            error, unde hic in porro dolor est velit veritatis aliquam. Fuga placeat dolorem asperiores perferendis!</p>
+    <div>
+        Cargando...
     </div>
+    <img src="https://source.unsplash.com/random" alt="">
+    <img src="http://lorempixel.com/1920/1048" alt="">
+    <img src="https://picsum.photos/1920" alt="">
+    <img src="https://www.fillmurray.com/640/360" alt="">
+    <img src="https://loremflickr.com/1920/1048" alt="">
     <script>
-        let boton = document.createElement("button");
         let cuerpo = document.getElementsByTagName("body")[0];
-        boton.innerText = "Cerrar";
-        document.getElementById("ventana").addEventListener("scroll", () => {
-            //Seleccionamos la posición actual
-            let scrollTop = document.getElementById("ventana").scrollTop;
-            //La altura de la caja con scroll incluido
-            let scrollHeight = document.getElementById("ventana").scrollHeight;
-            //Y la altura de la caja sin scroll
-            let clientHeight = document.getElementById("ventana").clientHeight;
-            //Restando ambos, conseguimos la altura que indica el final de la caja con scroll
-            let contenido = scrollHeight - clientHeight;
-            //Cuando se haya llegado a ese final, hacemos aparecer el botón
-            if (contenido <= scrollTop) {
-                //Cuando llegamos al final, añadimos el boton al final de la vetana con scroll
-                document.getElementById("ventana").appendChild(boton);
-                //Al pulsar el botón, elminamos el cuadro de texto
-                boton.addEventListener("click", () => {
-                    cuerpo.removeChild(document.getElementById("ventana"));
-                });
-            }
+        let carga = document.getElementsByTagName("div")[0];
+        //El evento load se debe aplicar al objeto window en lugar del objeto document como de costumbre
+        window.addEventListener("load", function (ev) {
+            //Cuando se haya terminado de cargar, movemos el div hacia abajo y lo hacemos invisible
+            carga.style.transform = "translateY(1000px)";
+            carga.style.opacity = 0;
+            carga.style.visibility = "hidden"
         });
     </script>
 </body>
