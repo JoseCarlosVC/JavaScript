@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Datos online</title>
 </head>
 
 <body>
-    <form action="#" id="formulario">
-        <input type="submit" value="Enviar">
-    </form>
+    <h1>Presentando datos en formato JSON</h1>
+    <p id="miID"></p>
     <script>
-        let formulario = document.getElementById("formulario");
-        fetch("./info.json")
+        var parrafo = document.getElementById("miID");
+        fetch("http://jsonplaceholder.typicode.com/posts/1")
             .then(respuesta => {
                 if (respuesta.ok) { //Nos aseguramos que no haya errores
                     return respuesta.json(); //Devuelve un objeto en formato JSON
@@ -25,13 +22,14 @@
             .then(miJSON => { //Recoge nuestra respuesta JSON
                 console.log(miJSON); //Sacamos el objeto por consola
                 //Volcamos los datos
-                for (let datos in miJSON) {
-                    console.log(datos + " " +
-                        miJSON[datos]);
-                }
+                parrafo.innerHTML = `
+                    <strong>userId</strong>: ${miJSON.userId} <br>
+                    <strong>ID</strong>: ${miJSON.id} <br>
+                    <strong>title</strong>: ${miJSON.title} <br>
+                    <strong>body</strong>: ${miJSON.body}`;
             }) //Lo podemos hacer así por miJSON es un objeto con sus propiedades
             .catch(error => {
-                formulario.textContent = "Error: " + error;
+                parrafo.textContent = "Error: " + error;
             });
     </script>
 </body>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de fetch</title>
+</head>
+
+<body>
+    <script>
+        fetch("./index.php")
+            .then(respuesta => {
+                console.log(respuesta.status);
+                console.log(respuesta.text()); //Devuelve 200 (OK)
+
+            })
+            .catch(error => {
+                console.log("Error: " + error);
+            });
+        /*fetch("http://noexiste.com")
+        .then(respuesta => {
+        console.log(respuesta.status);
+        })
+        .catch(error => {
+        console.log("Error: " + error);
+        });*/
+    </script>
+</body>
+
+</html>
