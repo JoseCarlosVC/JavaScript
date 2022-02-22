@@ -11,25 +11,20 @@
 <body>
     <script>
         function fecha() {
-            let dia = "";
-            let mes = "";
-            let year = "";
-            while (!dia.match(/(?=\d){1,2}/)) { //Se introducen uno o dos dígitos...
-                dia = prompt("Introduce el día");
+            let fecha = "";
+            while (!fecha.match(/\d{4}\/\d{1,2}\/\d{1,2}/)) {
+                fecha = prompt("Introduce una fecha en el formato yyyy/mm/dd");
+                //Seguimos pidiendo la fecha hasta que se cumpla la expresión regular
             }
-            while (!mes.match(/(?=\d){1,2}/)) { //Se introducen uno o dos dígitos...
-                mes = prompt("Introduce el mes");
-            }
-            mes--; //Los meses se cuentan a partir de 0, necesitamos restarle 1 para que se introduzca correctamente
-            while (!year.match(/\d{4}/)) { //Se introducen cuatro dígitos exactos
-                year = prompt("Introduce el año");
-            }
-            return new Date(year, mes, dia);
+            return new Date(fecha);
         }
         let primeraFecha = fecha();
         let segundaFecha = fecha();
-        let diferencia = Math.abs(segundaFecha - primeraFecha); //No sabemos cual de las fechas será mayor. Así que para evitar un resultado negativo, cogeremos el valor absoluto de la operación
-        let dias = Math.ceil(diferencia / (1000 * 60 * 60 * 24)); //Convertimos de milisegundos a dias y redondeamos hacia arriba
+        let diferencia = Math.abs(segundaFecha -
+            primeraFecha
+        ); //No sabemos cual de las fechas será mayor. Así que para evitar un resultado negativo, cogeremos el valor absoluto de la operación
+        let dias = Math.ceil(diferencia / (1000 * 60 * 60 *
+            24)); //Convertimos de milisegundos a dias y redondeamos hacia arriba
         alert("La diferencia de dias es de: " + dias);
     </script>
 </body>

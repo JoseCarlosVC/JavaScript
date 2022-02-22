@@ -11,8 +11,10 @@
 <body>
     <form action="#" id="formulario">
         <input type="submit" value="Enviar">
+        <br>
     </form>
     <script>
+        //Seleccionamos el formulario para añadir elementos mas tarde
         let formulario = document.getElementById("formulario");
         fetch("./info.json")
             .then(respuesta => {
@@ -23,13 +25,27 @@
                 }
             })
             .then(miJSON => { //Recoge nuestra respuesta JSON
-                console.log(miJSON); //Sacamos el objeto por consola
-                //Volcamos los datos
+                //Para cada dato del JSON
                 for (let datos in miJSON) {
-                    console.log(datos + " " +
-                        miJSON[datos]);
+                    //Creamos una etiqueta
+                    let label = document.createElement("label");
+                    //Añadimos el atributo for con el nombre del campo y también añadimos ese nombre al texto
+                    label.setAttribute("for", datos);
+                    label.innerText = datos;
+                    //Por ultimo, añadimos la etiqueta al formulario
+                    formulario.appendChild(label);
+                    //Ahora, creamos un input con el nombre del campo
+                    let input = document.createElement("input");
+                    input.setAttribute("name", datos);
+                    input.setAttribute("type", "text");
+                    //Y ponemos como valor el contenido del JSON
+                    input.value = miJSON[datos];
+                    //Añadimos el input...
+                    formulario.appendChild(input);
+                    //... y un espacio en blanco para espaciar los inputs
+                    formulario.appendChild(document.createElement("br"));
                 }
-            }) //Lo podemos hacer así por miJSON es un objeto con sus propiedades
+            })
             .catch(error => {
                 formulario.textContent = "Error: " + error;
             });

@@ -19,16 +19,25 @@
     <script>
         function recorrerNodos(nodo) {
             //Recorremos todos los nodos hijo del elemento actual
-            for (let i = 0; i < nodo.childNodes.length; i++) {
-                let hijo = nodo.childNodes[i];
+            for (let i = 0; i < nodo.children.length; i++) {
+
+                let hijo = nodo.children[i];
+
                 recorrerNodos(hijo);
+                //Cuando se llegue al último, saldremos de la recursividad y mostraremos los datos de esa etiqueta
 
+                //Primero comprobamos si hay atributos
+                if (hijo.hasAttributes()) {
+                    //Mostramos el nombre de la etiqueta
+                    console.log(hijo.tagName);
+                    for (let atributo of hijo.attributes) {
+                        //Y para cada atributo de esa etiqueta, mostramos el nombre del atributo y su valor
+                        console.log(atributo.name + " -> " + atributo.value);
+                    }
+                } else {
+                    console.log(hijo.tagName);
+                }
             }
-            if (nodo.attributes) {
-                console.log(nodo.attributes);
-            }
-            console.log(nodo.innerText);
-
         }
         let pagina = document.getElementsByTagName("html")[0];
         //Aunque solo exista un elemento HTML, la función getElementsByTagName devuelve un array. Cogemos su primera posición para seleccionar el nodo HTMl

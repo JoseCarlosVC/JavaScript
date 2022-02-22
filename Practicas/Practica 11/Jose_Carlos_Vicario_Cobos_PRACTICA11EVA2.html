@@ -23,9 +23,12 @@
     <script>
         let cuerpo = document.getElementsByTagName("body")[0];
         document.addEventListener("keydown", function (ev) {
+            //Cuando se den los dos eventos; pulsar la tecla Alt y la tecla F12 entraremos en la condición
             if ((ev.altKey) && (ev.key == "F12")) {
+                //Ponemos como imagen de fondo de toda la página una imagen aleatoria
                 cuerpo.style.backgroundImage = "url('https://source.unsplash.com/random')";
                 cuerpo.style.backgroundSize = "cover";
+                //Con las propiedades cover y fixed, conseguimos que la imagen ocupe toda la página web
                 cuerpo.style.backgroundAttachment = "fixed";
             }
         });
