@@ -22,10 +22,42 @@
         <label for="body">Body</label>
         <textarea name="body" id="body" cols="30" rows="10"></textarea>
         <br>
-        <input type="submit" value="enviar" id="enviar">
     </form>
     <script>
-
+        let formulario = document.getElementById("formulario");
+        fetch("http://jsonplaceholder.typicode.com/posts.json")
+            .then(respuesta => {
+                if (respuesta.ok) { //Nos aseguramos que no haya errores
+                    return respuesta.json(); //Devuelve un objeto en formato JSON
+                } else {
+                    throw new Error("Los datos no llegaron bien");
+                }
+            })
+            .then(miJSON => { //Recoge nuestra respuesta JSON
+                //Para cada dato del JSON
+                for (let datos in miJSON) {
+                    //Creamos una etiqueta
+                    let label = document.createElement("label");
+                    //Añadimos el atributo for con el nombre del campo y también añadimos ese nombre al texto
+                    label.setAttribute("for", datos);
+                    label.innerText = datos;
+                    //Por ultimo, añadimos la etiqueta al formulario
+                    formulario.appendChild(label);
+                    //Ahora, creamos un input con el nombre del campo
+                    let input = document.createElement("input");
+                    input.setAttribute("name", datos);
+                    input.setAttribute("type", "text");
+                    //Y ponemos como valor el contenido del JSON
+                    input.value = miJSON[datos];
+                    //Añadimos el input...
+                    formulario.appendChild(input);
+                    //... y un espacio en blanco para espaciar los inputs
+                    formulario.appendChild(document.createElement("br"));
+                }
+            })
+            .catch(error => {
+                formulario.textContent = "Error: " + error;
+            });
     </script>
 </body>
 
