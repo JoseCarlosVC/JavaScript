@@ -33,6 +33,8 @@
         let id = document.getElementById("id");
         let title = document.getElementById("title");
         let body = document.getElementById("body");
+        let anterior = document.getElementById("anterior");
+        let siguiente = document.getElementById("siguiente");
 
         fetch("http://jsonplaceholder.typicode.com/posts")
             .then(respuesta => {
@@ -43,36 +45,50 @@
                 }
             })
             .then(miJSON => { //Recoge nuestra respuesta JSON
-                //Aquí se devuelve un array de elementos JSON, deberemos recorrerlo uno a uno
-                console.log(miJSON);
-                for (let i = 0; i < miJSON.length; i++) {
-                    //Y dentro del cada posición, ver los datos de esa entrada
-                    for (let datos in miJSON[i]) {
-                        user.value = miJSON[i]["userId"];
-                        id.value = miJSON[i]["id"];
-                        title.value = miJSON[i]["title"];
-                        body.value = miJSON[i]["body"];
-                    }
-
-                    /*
-                    //Creamos una etiqueta
-                    let label = document.createElement("label");
-                    //Añadimos el atributo for con el nombre del campo y también añadimos ese nombre al texto
-                    label.setAttribute("for", datos);
-                    label.innerText = datos;
-                    //Por ultimo, añadimos la etiqueta al formulario
-                    formulario.appendChild(label);
-                    //Ahora, creamos un input con el nombre del campo
-                    let input = document.createElement("input");
-                    input.setAttribute("name", datos);
-                    input.setAttribute("type", "text");
-                    //Y ponemos como valor el contenido del JSON
-                    input.value = miJSON[datos];
-                    //Añadimos el input...
-                    formulario.appendChild(input);
-                    //... y un espacio en blanco para espaciar los inputs
-                    formulario.appendChild(document.createElement("br"));*/
+                //Aquí se devuelve un array de elementos JSON por defecto mostraremos el primero
+                let posicionActual = 99;
+                //Y dentro del cada posición, ver los datos de esa entrada
+                for (let datos in miJSON[posicionActual]) {
+                    user.value = miJSON[posicionActual]["userId"];
+                    id.value = miJSON[posicionActual]["id"];
+                    title.value = miJSON[posicionActual]["title"];
+                    body.value = miJSON[posicionActual]["body"];
                 }
+
+                //Si pulsamos el botón anterior, restamos a la variable posicionActual y mostramos el contenido
+                //Si no se puede restar, mostraremos una alerta
+                anterior.addEventListener("click", function (ev) {
+                    ev.preventDefault();
+                    //Es necesario anular el comportamiento del botón para que no se recargue la página
+                    if (posicionActual == 0) {
+                        alert("Has llegado al principio del array");
+                    } else {
+                        posicionActual--;
+                        for (let datos in miJSON[posicionActual]) {
+                            user.value = miJSON[posicionActual]["userId"];
+                            id.value = miJSON[posicionActual]["id"];
+                            title.value = miJSON[posicionActual]["title"];
+                            body.value = miJSON[posicionActual]["body"];
+                        }
+                    }
+                });
+
+                //Por otra parte, si pulsamos siguiente, sumamos a la variable y mostramos
+                //Si hemos llegado al final del array (length) avisamos
+                siguiente.addEventListener("click", function (ev) {
+                    ev.preventDefault();
+                    if (posicionActual == (miJSON.length - 1)) {
+                        alert("Has llegado al final del array");
+                    } else {
+                        posicionActual++;
+                        for (let datos in miJSON[posicionActual]) {
+                            user.value = miJSON[posicionActual]["userId"];
+                            id.value = miJSON[posicionActual]["id"];
+                            title.value = miJSON[posicionActual]["title"];
+                            body.value = miJSON[posicionActual]["body"];
+                        }
+                    }
+                });
             })
             .catch(error => {
                 formulario.textContent = "Error: " + error;
