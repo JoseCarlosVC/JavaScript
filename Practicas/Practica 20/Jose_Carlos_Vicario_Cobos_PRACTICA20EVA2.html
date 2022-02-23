@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="#">
+    <form action="#" id="formulario">
         <label for="user">User ID</label>
         <input type="text" name="user" id="user">
         <br>
@@ -20,12 +20,21 @@
         <input type="text" name="title" id="title">
         <br>
         <label for="body">Body</label>
+        <br>
         <textarea name="body" id="body" cols="30" rows="10"></textarea>
+        <br>
+        <button id="anterior">Anterior</button>
+        <button id="siguiente">Siguiente</button>
         <br>
     </form>
     <script>
         let formulario = document.getElementById("formulario");
-        fetch("http://jsonplaceholder.typicode.com/posts.json")
+        let user = document.getElementById("user");
+        let id = document.getElementById("id");
+        let title = document.getElementById("title");
+        let body = document.getElementById("body");
+
+        fetch("http://jsonplaceholder.typicode.com/posts")
             .then(respuesta => {
                 if (respuesta.ok) { //Nos aseguramos que no haya errores
                     return respuesta.json(); //Devuelve un objeto en formato JSON
@@ -34,8 +43,18 @@
                 }
             })
             .then(miJSON => { //Recoge nuestra respuesta JSON
-                //Para cada dato del JSON
-                for (let datos in miJSON) {
+                //Aquí se devuelve un array de elementos JSON, deberemos recorrerlo uno a uno
+                console.log(miJSON);
+                for (let i = 0; i < miJSON.length; i++) {
+                    //Y dentro del cada posición, ver los datos de esa entrada
+                    for (let datos in miJSON[i]) {
+                        user.value = miJSON[i]["userId"];
+                        id.value = miJSON[i]["id"];
+                        title.value = miJSON[i]["title"];
+                        body.value = miJSON[i]["body"];
+                    }
+
+                    /*
                     //Creamos una etiqueta
                     let label = document.createElement("label");
                     //Añadimos el atributo for con el nombre del campo y también añadimos ese nombre al texto
@@ -52,7 +71,7 @@
                     //Añadimos el input...
                     formulario.appendChild(input);
                     //... y un espacio en blanco para espaciar los inputs
-                    formulario.appendChild(document.createElement("br"));
+                    formulario.appendChild(document.createElement("br"));*/
                 }
             })
             .catch(error => {
